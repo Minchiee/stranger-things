@@ -1,12 +1,13 @@
 import React, {useState} from "react";
-import { Navbar, Posts, Register } from "./";
+import { Navbar, Posts, Register, Login } from "./";
 
 
 const Main = () => {
   return (
     <div id="main">
       <Navbar />
-      <Posts />
+      {/* <Login /> */}
+      {/* <Posts /> */}
       <Register />
     </div>
   );
