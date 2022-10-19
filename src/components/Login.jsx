@@ -3,6 +3,9 @@ import { loginUser } from '../api-adapter'
 
 
 function Login() {
+  const [userName, setUserName] = useState([]);
+  const [password, setPassword] = useState([]);
+
   async function handleSubmit(event){
     event.preventDefault()
     const username = event.target[0].value
@@ -10,7 +13,7 @@ function Login() {
     const loggedInUser = await loginUser(username, password)
     console.log(loggedInUser)
     const token = loggedInUser.token
-    let getUserToken = localStorage.getItem('token')
+    console.log(localStorage.getItem(`${token}`))
     console.log(token)
 }
  

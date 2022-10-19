@@ -1,22 +1,30 @@
-import React, {useEffect} from 'react'
-import {Login} from './'
-import {getMe} from '../api-adapter'
-
+import React, { useEffect } from "react";
+import { Login } from "./";
+import { getMe, loginUser } from "../api-adapter";
 
 const Me = () => {
-    
-    useEffect(() => {
-        console.log('helllo')
-        const getMeData = async () => {
-        const myself = await getMe(localStorage.getItem('token'))
-        console.log(myself)
-      } 
-      getMeData()
-    }, [])
-    
-  return (
-    <div>Hello</div>
-  )
-}
+    async function getLoggedInUser(event){
+        event.preventDefault()
+        const username = event.target[0].value
+        const password = event.target[1].value
+        const loggedInUser = await loginUser(username, password)
+        const token = loggedInUser.token
+        return token
+    }
 
-export default Me
+
+  useEffect(() => {
+    console.log("hello");
+    const getMeData = async (event) => {
+    
+    const myself = await getMe(getLoggedInUser);
+    console.log(myself);
+    };
+    getMeData();
+  }, []);
+
+  return 
+  <div>Hello</div>;
+};
+
+export default Me;
