@@ -21,7 +21,7 @@ export async function registerUser(username, password) {
     }
     const response = await fetch(`${BASE_URL}/users/register`, options)
     const result = await response.json()
-    console.log(result)
+   return result.data
 }
 
 export async function loginUser(username, password) {
@@ -41,15 +41,20 @@ export async function loginUser(username, password) {
     const response = await fetch(`${BASE_URL}/users/login`,options)
     const result = await response.json()
     console.log(result)
+    return result.data
 }
 
 export async function getMe() {
+    
     const options = {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': Bearer
+            'Authorization': 'Bearer TOKEN_STRING_HERE'
         }
     }
+    const response = await fetch(`${BASE_URL}/users/me`, options)
+    const result = await response.json()
+    return result.data
 }
 
 // async function getPosts() {

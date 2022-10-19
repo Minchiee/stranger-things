@@ -3,16 +3,17 @@ import { loginUser } from '../api-adapter'
 
 
 function Login() {
-    async function handleSubmit(event){
-        event.preventDefault()
-        const username = event.target[0].value
-        const password = event.target[1].value
-        const loggedInUser = await loginUser(username, password)
-        const token = loggedInUser.token
-        localStorage.getItem('token')
-        console.log(loggedInUser)
-    }
-
+  async function handleSubmit(event){
+    event.preventDefault()
+    const username = event.target[0].value
+    const password = event.target[1].value
+    const loggedInUser = await loginUser(username, password)
+    console.log(loggedInUser)
+    const token = loggedInUser.data
+    localStorage.getItem('token')
+    console.log(token)
+}
+ 
   return (
     <div className="login">
       {`This is your Login Component`}
