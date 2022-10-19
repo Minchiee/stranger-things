@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { loginUser } from '../api-adapter'
 
 
-function Login() {
+function Login(props) {
   const [userName, setUserName] = useState([]);
   const [password, setPassword] = useState([]);
 
@@ -14,6 +14,7 @@ function Login() {
     console.log(loggedInUser)
     const token = loggedInUser.token
     localStorage.setItem('token', token)
+    props.getMeData()
     // console.log(localStorage.getItem(`${token}`))
     console.log(token)
 }

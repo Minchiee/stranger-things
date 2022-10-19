@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Login } from "./";
 import { getMe, loginUser } from "../api-adapter";
 
-const Me = () => {
+const Me = (props) => {
     // async function getLoggedInUser(event){
     //     event.preventDefault()
     //     const username = event.target[0].value
@@ -11,16 +11,9 @@ const Me = () => {
     //     const token = loggedInUser.token
     //     return token
     // }
+console.log(props.loggedInUser)
 
-
-  useEffect(() => {
-    console.log("hello");
-    const getMeData = async () => {
-    const myself = await getMe(localStorage.getItem('token'));
-    console.log(myself);
-    };
-    getMeData();
-  }, []);
+ 
 
   return 
   <div>Hello</div>;

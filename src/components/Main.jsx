@@ -6,14 +6,15 @@ const Main = () => {
   const BASE = "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT";
 
     const [loggedInUser, setLoggedInUser] = useState([])
-    setLoggedInUser
+    const [loggedIn, setLoggedIn] = useState(false)
     
+    const getMeData = async () => {
+    const myself = await getMe(localStorage.getItem('token'));
+    setLoggedInUser(myself);
+    setLoggedIn(true)
+    }; 
     useEffect(() => {
         console.log("hello");
-        const getMeData = async () => {
-        const myself = await getMe(localStorage.getItem('token'));
-        console.log(myself);
-        }; 
         if(localStorage.getItem('token')) 
         {getMeData();}
       }, []);
@@ -23,10 +24,10 @@ const Main = () => {
   return (
     <div id="main">
       <Navbar />
-      <Login />
+      <Login getMeData = {getMeData}/>
       {/* <Posts /> */}
       <Register />
-      <Me getUserList = {getUserList}/>
+      <Me loggedInUser = {loggedInUser}/>
     </div>
   );
 };
