@@ -5,7 +5,10 @@ import { loginUser } from '../api-adapter'
 function Login() {
     async function handleSubmit(event){
         event.preventDefault()
-loginUser()
+        const username = event.target[0].value
+        const password = event.target[1].value
+        const loggedInUser = await loginUser(username, password)
+        console.log(loggedInUser)
     }
 
   return (
