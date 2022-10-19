@@ -9,8 +9,8 @@ function Login() {
     const password = event.target[1].value
     const loggedInUser = await loginUser(username, password)
     console.log(loggedInUser)
-    const token = loggedInUser.data
-    localStorage.getItem('token')
+    const token = loggedInUser.token
+    let getUserToken = localStorage.getItem('token')
     console.log(token)
 }
  

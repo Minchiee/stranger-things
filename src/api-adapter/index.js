@@ -1,7 +1,7 @@
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT'
 
 export async function getPosts() {
-    const response = await fetch(`${BASE_URL}/api/${COHORT}/posts`)
+    const response = await fetch(`${BASE_URL}/posts`)
     const result = await response.json()
     const posts = result.data.posts
     return posts
@@ -44,16 +44,16 @@ export async function loginUser(username, password) {
     return result.data
 }
 
-export async function getMe() {
-    
+export async function getMe(token) {
     const options = {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer TOKEN_STRING_HERE'
+            'Authorization': `Bearer ${token}`
         }
     }
     const response = await fetch(`${BASE_URL}/users/me`, options)
     const result = await response.json()
+    // console.log(response)
     return result.data
 }
 

@@ -1,22 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Login} from './'
+import {getMe} from '../api-adapter'
+
+
 const Me = () => {
-    async function getMe() {
     
-        const options = {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer TOKEN_STRING_HERE'
-            }
-        }
-        const response = await fetch(`${BASE_URL}/users/me`, options)
-        const result = await response.json()
-        return result.data
-    }
-
-
+    useEffect(() => {
+        console.log('helllo')
+        const getMeData = async () => {
+        const myself = await getMe(localStorage.getItem('token'))
+        console.log(myself)
+      } 
+      getMeData()
+    }, [])
+    
   return (
-    <div>Me</div>
+    <div>Hello</div>
   )
 }
 
