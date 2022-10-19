@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Posts, Register, Login, Me } from "./";
-import { loginUser } from "../api-adapter";
+import { loginUser, getMe } from "../api-adapter";
 
 const Main = () => {
   const BASE = "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT";
 
-    const [userList, setUserList] = useState([]);
-        const [registeredUser, setRegisteredUser] = useState({});
-        const [filteredList, setFilteredList] = useState([]);
-      
-        async function getUserList() {
-            const response = await fetch(`${BASE}/users/login`);
-            const users = await response.json();
-    setUserList(users.token);
-    console.log(userList);
-        }
+    const [loggedInUser, setLoggedInUser] = useState([])
+    setLoggedInUser
     
-  useEffect(() => {getUserList()}, []);
+    useEffect(() => {
+        console.log("hello");
+        const getMeData = async () => {
+        const myself = await getMe(localStorage.getItem('token'));
+        console.log(myself);
+        }; 
+        if(localStorage.getItem('token')) 
+        {getMeData();}
+      }, []);
+    
+
 
   return (
     <div id="main">
