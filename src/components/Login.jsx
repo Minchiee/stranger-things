@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
+import { loginUser } from '../api-adapter'
 
 
 function Login() {
     async function handleSubmit(event){
         event.preventDefault()
-
+loginUser()
     }
 
   return (
