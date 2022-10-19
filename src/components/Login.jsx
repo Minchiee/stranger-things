@@ -13,7 +13,8 @@ function Login() {
     const loggedInUser = await loginUser(username, password)
     console.log(loggedInUser)
     const token = loggedInUser.token
-    console.log(localStorage.getItem(`${token}`))
+    localStorage.setItem('token', token)
+    // console.log(localStorage.getItem(`${token}`))
     console.log(token)
 }
  
@@ -22,9 +23,9 @@ function Login() {
       {`This is your Login Component`}
       <form onSubmit={handleSubmit}>
         <label htmlFor="username" >Username: </label>
-        <input id="username" type="text" required />
+        <input id="username" type="text" required onChange={elem => setUserName(elem.target.value)}/>
         <label htmlFor="password" >Password: </label>
-        <input id="password" type='password' />
+        <input id="password" type='password' required onChange={elem => setPassword(elem.target.value)}/>
         <button type="submit">Submit</button> 
       </form>
     </div>
