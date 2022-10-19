@@ -22,12 +22,10 @@ export async function registerUser(username, password) {
     const response = await fetch(`${BASE_URL}/users/register`, options)
     const result = await response.json()
     console.log(result)
-    return result.data
-
 }
 
 export async function loginUser(username, password) {
-    console.log(username, password)
+    // console.log(username, password)
     const options = {
         method: 'POST',
         headers: {
@@ -42,11 +40,17 @@ export async function loginUser(username, password) {
     }
     const response = await fetch(`${BASE_URL}/users/login`,options)
     const result = await response.json()
-    // let newUserList = [...userList, result.data.newUser];
-    // setUserList(newUserList);
     console.log(result)
 }
 
+export async function getMe() {
+    const options = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': Bearer
+        }
+    }
+}
 
 // async function getPosts() {
 //     const response = await fetch(`${BASE_URL}/api/${COHORT}/posts`);

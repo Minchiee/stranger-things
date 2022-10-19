@@ -8,6 +8,8 @@ function Login() {
         const username = event.target[0].value
         const password = event.target[1].value
         const loggedInUser = await loginUser(username, password)
+        const token = loggedInUser.token
+        localStorage.getItem('token')
         console.log(loggedInUser)
     }
 
