@@ -20,7 +20,7 @@ import { loginUser, getMe } from "../api-adapter";
 const Main = () => {
   const BASE = "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT";
 
-  const [loggedInUser, setLoggedInUser] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
 
   const getMeData = async () => {
@@ -38,11 +38,12 @@ const Main = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Navbar />}>
+      <Route path="/" element={<Navbar loggedIn = {loggedIn} setLoggedIn = {setLoggedIn} setLoggedInUser = {setLoggedInUser}/>}>
+        <Route path="posts" element={<Posts />} />
+        <Route path="create" element={<CreatePost loggedInUser={loggedInUser} />} />
         <Route path="login" element={<Login getMeData={getMeData} />} />
         <Route path="register" element={<Register />} />
-        <Route path="create" element={<CreatePost loggedInUser={loggedInUser} />} />
-        <Route path="posts" element={<Posts />} />
+        <Route path='home' element ={< Main/>} />
       </Route>
     )
   );
