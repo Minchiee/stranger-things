@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getPosts } from "../api-adapter";
+import { SinglePost } from './'
 
+const Posts = (props, SinglePost) => {
 
-const Posts = (props) => {
   const [posts, setAllPosts] = useState([]);
+  
   useEffect(() => {
     async function fetchPosts() {
       const allPosts = await getPosts();
@@ -11,15 +13,21 @@ const Posts = (props) => {
     }
     fetchPosts();
   }, []);
+  
   return (
     <div className="box">
-      {posts.length ? (posts.map((post) => {
-          return <div>{post.title}</div>;
-        })) 
-        : 
-        (
+      {posts.length ? (
+        posts.map((post) => {
+          return <div>
+            {post.title}
+            <div>
+              <button id='showPost' onSubmit={() => <SinglePost/>}>See Details</button>
+              </div>
+            </div>
+        })
+      ) : (
         <div>Loading Your Posts</div>
-        )}
+      )}
     </div>
   );
 };

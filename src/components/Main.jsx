@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Posts, Register, Login, Me } from "./";
+import { Navbar, Posts, Register, Login, Me, PostDetails, SinglePost } from "./";
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"
 import { loginUser, getMe } from "../api-adapter";
 
 const Main = () => {
@@ -20,15 +21,18 @@ const Main = () => {
         {getMeData();}
       }, []);
     
-
+      const router = createBrowserRouter(createRoutesFromElements(
+      <Route path='/' element = {<Navbar />} > 
+      <Route path = 'Login' element = {<Login getMeData = {getMeData} />}/>
+      {/* <Posts /> */}
+      <Route path = 'Register' element = {<Register/>} />
+      <Route path = 'Me' element = {<Me loggedInUser = {loggedInUser} />}/>
+      <Route path = 'Posts' element = {< Posts/>} /></Route>
+      ))
 
   return (
     <div id="main">
-      <Navbar />
-      <Login getMeData = {getMeData}/>
-      {/* <Posts /> */}
-      <Register />
-      <Me loggedInUser = {loggedInUser}/>
+      
     </div>
   );
 };
