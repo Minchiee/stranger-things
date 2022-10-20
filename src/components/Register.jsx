@@ -15,13 +15,13 @@ const Register = (props) => {
     }
   return (
     <div className="box">
-      {`This is your Register Component`}
+    <h3 className="loginHead">Register</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username" >Username: </label>
-        <input id="username" type="text" required />
+        <input className="loginInput" id="username" type="text" required />
         <label htmlFor="password" >Password: </label>
-        <input id="password" type='password' />
-        <button type="submit">Submit</button> 
+        <input className="loginInput" id="password" type='password' />
+        <button className="loginButton" type="submit">Submit</button> 
       </form>
     </div>
   );

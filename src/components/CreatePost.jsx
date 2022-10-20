@@ -1,10 +1,10 @@
 import React, { useState,useEffect } from "react";
-import { Login } from "./";
+import { Login } from ".";
 import { getMe, loginUser } from "../api-adapter";
 import './Me.css';
 import { json } from "react-router-dom";
 
-const Me = (props) => {
+const CreatePost = (props) => {
 const [title, setTitle] = useState('')
 const [description, setDescription] = useState('')
 const [author, setAuthor] = useState([])
@@ -111,4 +111,4 @@ const handleChange = (e) => {
   );
 }
 
-export default Me;
+export default CreatePost;

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
+import { Outlet, Link } from 'react-router-dom';
 import { loginUser } from '../api-adapter'
-
+import './Me.css'
 
 function Login(props) {
   const [userName, setUserName] = useState([]);
@@ -21,14 +22,16 @@ function Login(props) {
  
   return (
     <div className="login">
-      {`This is your Login Component`}
+     <h3 className="loginHead">Login</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username" >Username: </label>
-        <input id="username" type="text" required onChange={elem => setUserName(elem.target.value)}/>
+        <input className='loginInput' id="username" type="text" required onChange={elem => setUserName(elem.target.value)}/>
         <label htmlFor="password" >Password: </label>
-        <input id="password" type='password' required onChange={elem => setPassword(elem.target.value)}/>
-        <button type="submit">Submit</button> 
-      </form>
+        <input className='loginInput' id="password" type='password' required onChange={elem => setPassword(elem.target.value)}/>
+        <button className='loginButton' type="submit">Submit</button> 
+        
+           
+         </form>
     </div>
   )
 }

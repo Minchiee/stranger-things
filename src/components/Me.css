@@ -28,3 +28,28 @@
     border-radius: 8px;
     cursor: pointer;
   }
+
+  .loginButton {
+    background:#1289b4;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .loginInput {
+
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+
+  }
+
+  .loginHead {
+text-align: center;
+
+  }
