@@ -21,7 +21,7 @@ const Register = (props) => {
         <input className="loginInput" id="username" type="text" required />
         <label htmlFor="password" >Password: </label>
         <input className="loginInput" id="password" type='password' />
-        <button className="loginButton" type="submit">Submit</button> 
+        <button className="loginButton" type="submit">Register your account</button> 
       </form>
     </div>
   );
