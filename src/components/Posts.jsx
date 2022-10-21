@@ -1,39 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { getPosts, getPostsDetails } from "../api-adapter";
+import { getPosts, getPostsDetails, } from "../api-adapter";
 import { SinglePost } from "./";
 import { Link } from "react-router-dom";
 import "./Me.css";
 
 const Posts = (props) => {
-  const [posts, setAllPosts] = useState([]);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      const allPosts = await getPosts();
-      setAllPosts(allPosts);
-    }
-    fetchPosts();
-  }, []);
-
-
-
-  const handleClick = event => {
-    <Link to={`/posts/details/${post._id}`}></Link>
-  }
-
+  const posts = props.posts
   return (
     <div className="box">
       {posts.length ? (
         posts.map((post) => {
           return (
-            <div className="postTitle" key={`post${post._id}`}>
-              <div>{post.title} </div>
-              <div>{post._id.username} </div>
-              <div>{post.price} </div>
-              <div>{post.location} </div>
-              <div>{post.willDeliver} </div>
-              <Link to={`/post/${post._id}`}><button>Post Details</button></Link>
-            </div>
+            <SinglePost key={`post-id${post._id}`} post={post} />
           );
         })
       ) : (
