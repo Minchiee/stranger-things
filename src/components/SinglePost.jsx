@@ -6,6 +6,7 @@ const SinglePost = (props) => {
   const post = props.post;
   return (
     <div className="single-post box">
+          console.log('hello')
           <div >{post.title} </div>
           <div >{post.description} </div>
           <div >{post.price} </div>
