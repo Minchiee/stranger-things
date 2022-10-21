@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import {} from "./";
+import {SinglePost} from "./";
 import { getPosts } from "../api-adapter";
 import "./Me.css";
 
@@ -44,9 +44,18 @@ const SearchBar = (props) => {
               <div className="pupName">
                 <span> {post.title}</span> <span>Price: {post.price}</span>
                 <div>
-                  <button id="showPost" onSubmit={() => <SinglePost />}>
+                  {/* <button id="showPost" onSubmit={() => <SinglePost />}>
                     See Details
-                  </button>
+                  </button> */}
+                  {posts.length ? (
+                    posts.map((post) => {
+                      return (
+                        <SinglePost key={`post-id${post._id}`} post={post} />
+                      );
+                    })
+                  ) : (
+                    <div>Loading Your Posts</div>
+                  )}
                 </div>
               </div>
             </div>
