@@ -42,12 +42,12 @@ const SearchBar = (props) => {
           .map((post) => (
             <div key={`post${post._id}`} className="searchPosts">
               <div className="pupName">
-                <span> {post.title}</span> <span>Price: {post.price}</span>
+                <span> {<SinglePost key={`post-id${post._id}`} post={post} />}</span> <span>Price: {post.price}</span>
                 <div>
                   {/* <button id="showPost" onSubmit={() => <SinglePost />}>
                     See Details
                   </button> */}
-                  {posts.length ? (
+                  {/* {posts.length ? (
                     posts.map((post) => {
                       return (
                         <SinglePost key={`post-id${post._id}`} post={post} />
@@ -55,7 +55,7 @@ const SearchBar = (props) => {
                     })
                   ) : (
                     <div>Loading Your Posts</div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
