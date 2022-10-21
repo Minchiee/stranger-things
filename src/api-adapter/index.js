@@ -67,7 +67,7 @@ export async function updatePost(post, id, token) {
             post
         })
     }
-    const response = await fetch(`${BASE_URL}/api/${COHORT}/posts/${id}`, options)
+    const response = await fetch(`${BASE_URL}/posts/${id}`, options)
     const result = await response.json()
     return result
 }

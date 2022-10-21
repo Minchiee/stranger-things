@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../api-adapter";
+import { getPosts, getPostsDetails } from "../api-adapter";
 import { SinglePost } from "./";
 import { Link } from "react-router-dom";
 import "./Me.css";
@@ -14,6 +14,8 @@ const Posts = (props) => {
     }
     fetchPosts();
   }, []);
+
+
 
   const handleClick = event => {
     <Link to={`/posts/details/${post._id}`}></Link>
@@ -30,7 +32,7 @@ const Posts = (props) => {
               <div>{post.price} </div>
               <div>{post.location} </div>
               <div>{post.willDeliver} </div>
-              <Link to={`/posts/${post._id}`}><button>Post Details</button></Link>
+              <Link to={`/post/${post._id}`}><button>Post Details</button></Link>
             </div>
           );
         })
