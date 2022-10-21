@@ -18,6 +18,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { loginUser, getMe } from "../api-adapter";
+import Profile from "./Profile";
 
 const Main = () => {
   const BASE = "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT";
@@ -48,7 +49,7 @@ const Main = () => {
   }, []);
 
 function filterPosts(id){
-  console.log(id)
+  
   return posts.filter((post) => {
     return post._id == id
   })
@@ -63,7 +64,8 @@ function filterPosts(id){
         <Route path="home" element ={< Main/>} />
         <Route path="search" element ={<SearchBar/>}/>
         <Route path="posts/:id" element = {<PostDetail filterPosts = {filterPosts} loggedInUser = {loggedInUser} />}/>
-        <Route path="posts" element={<Posts posts={posts}/>} />
+        <Route path="posts" element={<Posts posts={posts} filterPosts={filterPosts}/>} />
+        <Route path="me" element={<Profile loggedInUser = {loggedInUser}/>}/>
       </Route>
     )
   );

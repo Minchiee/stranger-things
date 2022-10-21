@@ -1,11 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import { Posts } from './'
-import { Link } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
+import { sendMessage } from "../api-adapter";
 
 const SinglePost = (props) => {
+  const {id} = useParams()
+
   const post = props.post;
+ 
+  const [content, setContent] = useState("") 
+  
+  
+  async function handleMessage(e){
+    e.preventDefault()
+    
+    
+    const token =localStorage.getItem('token')
+    const message = await sendMessage(post._id,token,content)
+   console.log(message)
+
+
+}
   return (
-    <div className="single-post box">
+    
+   <> <div className="single-post box">
           <div >{post.title} </div>
           <div >{post.description} </div>
           <div >{post.price} </div>
@@ -13,6 +31,17 @@ const SinglePost = (props) => {
           <div >{post.willDeliver} </div>
           <Link to={`/posts/${post._id}`}><button>Post Details</button></Link>
     </div>
+    <form onSubmit={handleMessage}>
+    <input
+          className="input"
+          type="text"
+          name="name"
+          placeholder="Write this user a Message.."
+        
+        onChange={(e) => setContent(e.target.value)}
+        ></input>
+        <button>Send Message</button>
+    </form></>
   );
 };
 
