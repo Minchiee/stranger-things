@@ -7,7 +7,7 @@ import { json } from "react-router-dom";
 const CreatePost = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [author, setAuthor] = useState([]);
+  const [author, setAuthor] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
   const [willDeliver, setWillDeliver] = useState(false);
@@ -16,8 +16,8 @@ const CreatePost = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = { title, description, author, location, price, willDeliver };
-    setAuthor(props.loggedInUser);
-
+   
+setAuthor(props.loggedInUser.isAuthor)
     fetch(
       "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/posts",
       {
