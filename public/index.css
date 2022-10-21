@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Warang+Citi&display=swap');
+* {
+font-family: "Noto+Sans+Warang+Citi";
+}
+
 body {
     font-family: 'Raleway', Arial, sans-serif;
     height: 100vh;

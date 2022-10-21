@@ -7,6 +7,7 @@ import {
   CreatePost,
   PostDetails,
   SinglePost,
+  SearchBar
 } from "./";
 import {
   createBrowserRouter,
@@ -43,7 +44,8 @@ const Main = () => {
         <Route path="create" element={<CreatePost loggedInUser={loggedInUser} />} />
         <Route path="login" element={<Login getMeData={getMeData} />} />
         <Route path="register" element={<Register />} />
-        <Route path='home' element ={< Main/>} />
+        <Route path="home" element ={< Main/>} />
+        <Route path="search" element ={<SearchBar/>}/>
       </Route>
     )
   );

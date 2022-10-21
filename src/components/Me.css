@@ -2,6 +2,7 @@
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
+    font-weight: bold;
   }
   .submitPost label {
     text-align: left;
@@ -28,14 +29,20 @@
     border-radius: 8px;
     cursor: pointer;
   }
-
+ .login {
+ 
+  font-weight: bold;
+ 
+ }
   .loginButton {
+    
     background:#1289b4;
     color: #fff;
     border: 0;
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
+   
   }
 
   .loginInput {
@@ -51,5 +58,64 @@
 
   .loginHead {
 text-align: center;
+
+  }
+
+  .searchBar {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .searchPosts {
+    padding: 0.2em;
+    font-weight: bold;
+    align-items: center;
+  }
+
+.searchBar input {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 20px;
+  width: 100%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: aliceblue;
+
+}
+
+  .box {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5em;
+    font-weight: bold;
+   
+  }
+
+  .box button {
+    background:#1289b4;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 5px;
+  }
+
+  .searchBar button {
+    background:#1289b4;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 5px;
+
+  }
+  .postTitle {
+    padding: 0.5em;
 
   }
