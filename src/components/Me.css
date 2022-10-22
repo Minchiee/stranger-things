@@ -85,12 +85,22 @@ text-align: center;
 }
 
   .box {
+    display: flex;
+    flex-direction: column;
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
     padding: 5em;
     font-weight: bold;
    
+  }
+
+  .singlePostBox {
+display: flex;
+flex-direction: column;
+padding: 0.2em;
+margin: 5px;
+
   }
 
   .box button {
@@ -102,6 +112,7 @@ text-align: center;
     cursor: pointer;
     padding: 0.5em;
     margin: 5px;
+    width: 40%
   }
 
   .searchBar button {
@@ -117,5 +128,13 @@ text-align: center;
   }
   .postTitle {
     padding: 0.5em;
+
+  }
+
+  .messageBox {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
 
   }

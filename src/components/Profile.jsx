@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { sendMessage, getMe } from '../api-adapter'
+import './Me.css'
+
+
+
 const Profile = (props) => {
  const messages = props.loggedInUser.messages 
 const username = props.loggedInUser.username
@@ -44,14 +48,15 @@ const [mappedMessage, setMappedMessage] = useState([])
  //map through messages are they sent or received and set them to the state
 //  message.fromUser === currentUser
     return (
-      <><div>
+      <div className='messageBox'>
+      <div>
         <h3>received messages </h3>
         { messages ?
         messages.map((message) => {
            if (message.fromUser.username != username ) return (
            <div key={`message${message._id}`}>
-            <div>{message.content}</div>
-            <div>{message.fromUser.username}</div>
+            <div>Message: {message.content}</div>
+            <div>From :{message.fromUser.username}</div>
             </div>
             );
           }): 
@@ -63,7 +68,7 @@ const [mappedMessage, setMappedMessage] = useState([])
         messages.map((message) => {
            if(message.fromUser.username === username) return (
            <div key={`message${message._id}`}>
-            <div>{message.content }</div>
+            <div>Message: {message.content }</div>
             </div>
             );
           }): <h2>No Messages Currently</h2>}
@@ -72,7 +77,7 @@ const [mappedMessage, setMappedMessage] = useState([])
           </div>
           
           
-          </>
+          </div>
     
   )
 }
