@@ -45,6 +45,7 @@ const Navbar = (props) => {
         <Link className="links" to="">
           Home
         </Link>
+        <Link className="links" to="me">Profile</Link>
         <Link className="links" to="search">
           Search
           </Link>
