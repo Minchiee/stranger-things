@@ -23,25 +23,25 @@ const SinglePost = (props) => {
 }
   return (
     
-   <> <div className="single-post box">
+   <> <div className="singlePostBox">
           <div >{post.title} </div>
           <div >{post.description} </div>
           <div >{post.price} </div>
           <div >{post.location} </div>
           <div >{post.willDeliver} </div>
           <Link to={`/posts/${post._id}`}><button>Post Details</button></Link>
-    </div>
-    <form onSubmit={handleMessage}>
-    <input
-          className="input"
-          type="text"
-          name="name"
-          placeholder="Write this user a Message.."
-        
-        onChange={(e) => setContent(e.target.value)}
-        ></input>
+          <form onSubmit={handleMessage}>
+             <input
+                className="input"
+                type="text"
+                name="name"
+                placeholder="Write this user a Message.."
+                 onChange={(e) => setContent(e.target.value)}
+              ></input>
         <button>Send Message</button>
-    </form></>
+    </form>
+    </div>
+   </>
   );
 };
 
