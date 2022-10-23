@@ -7,57 +7,40 @@ import './Me.css'
 const Profile = (props) => {
  const messages = props.loggedInUser.messages 
 const username = props.loggedInUser.username
-const [mappedMessage, setMappedMessage] = useState([])
+
+const userPosts = props.loggedInUser.posts
+console.log(userPosts)
 
 
-
-
-
-// useEffect(() => {
-//   if (messages) return {
-
-//   newState: messages.map((message) =>
-//       { return setMappedMessage(newState);
-//       console.log(newState);  },
-//   }
-// }[]);
-
-// useEffect(() => {
-//   if (messages) return  messages.map(message);
-// });
-// console.log(mappedMessage)
-// useEffect(() => {
-//   if (messages) return {
-
-//   newState: messages.map((message) =>
-//       { return setMappedMessage(newState);
-//       console.log(newState);  }, []);
-//   }
-// });
-
-// useEffect(() => {
-//   if (messages) return messages.map((message) =>
-//       { return setMappedMessage(newState);
-//       console.log(newState);  }, []);
-// });
-
-  
-//  console.log(props.loggedInUser)
-//  const [messagesReceived, setMessagesReceived] = useState([])
-//  const [messagesSent, setMessagesSent] = useState([])
- //map through messages are they sent or received and set them to the state
-//  message.fromUser === currentUser
     return (
-      <div className='messageBox'>
+    <div className='messageBox'>
+          <div className="userPosts">
+        <h3 className="messageTitle">Your Posts </h3>
+        { userPosts ?
+        userPosts.map((post) => {
+          return (
+           <div key={`post${post._id}`}>
+             <div className="profileChild"> 
+             <h3>Post</h3>
+             {post.title} {post.price} </div>
+          
+         
+        
+           
+            </div>
+            );
+          }): 
+
+          <h2>No Messages Currently</h2>}</div> 
       <div>
         <h3>Received Messages </h3>
         { messages ?
         messages.map((message) => {
            if (message.fromUser.username != username ) return (
            <div key={`message${message._id}`}>
-            <div>Message: {message.content}</div>
-            <div>From :{message.fromUser.username}</div>
-            <div></div>
+            <div className='receivedMessage'>Message: {message.content}From :{message.fromUser.username}</div>
+          
+           
             </div>
             );
           }): 
@@ -69,7 +52,7 @@ const [mappedMessage, setMappedMessage] = useState([])
         messages.map((message) => {
            if(message.fromUser.username === username) return (
            <div key={`message${message._id}`}>
-            <div>Message: {message.content }</div>
+            <div className='receivedMessage'>Message: {message.content }</div>
             </div>
             );
           }): <h2>No Messages Currently</h2>}

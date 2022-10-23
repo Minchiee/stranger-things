@@ -42,7 +42,7 @@ const Main = () => {
     setLoggedIn(true);
   };
   useEffect(() => {
-    console.log("hello");
+   
     if (localStorage.getItem("token")) {
       getMeData();
     }
