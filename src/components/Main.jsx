@@ -64,7 +64,7 @@ function filterPosts(id){
         <Route path="home" element ={< Main/>} />
         <Route path="search" element ={<SearchBar/>}/>
         <Route path="posts/:id" element = {<PostDetail filterPosts = {filterPosts} loggedInUser = {loggedInUser} />}/>
-        <Route path="posts" element={<Posts posts={posts} filterPosts={filterPosts}/>} />
+        <Route path="posts" element={<Posts posts={posts} filterPosts={filterPosts} loggedInUser = {loggedInUser}/>} />
         <Route path="me" element={<Profile loggedInUser = {loggedInUser}/>}/>
       </Route>
     )

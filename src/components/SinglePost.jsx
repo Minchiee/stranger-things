@@ -5,7 +5,6 @@ import { sendMessage } from "../api-adapter";
 
 const SinglePost = (props) => {
   const {id} = useParams()
-
   const post = props.post;
  
   const [content, setContent] = useState("") 
@@ -13,7 +12,7 @@ const SinglePost = (props) => {
   
   async function handleMessage(e){
     e.preventDefault()
-    
+    console.log(post)
     
     const token =localStorage.getItem('token')
     const message = await sendMessage(post._id,token,content)
@@ -23,12 +22,15 @@ const SinglePost = (props) => {
 }
   return (
     
-   <> <div className="singlePostBox">
+   <>
+   
+    <div className="singlePostBox">
           <div >{post.title} </div>
           <div >{post.description} </div>
           <div >{post.price} </div>
           <div >{post.location} </div>
           <div >{post.willDeliver} </div>
+          <div> {post.messages}</div>
           <Link to={`/posts/${post._id}`}><button>Post Details</button></Link>
           <form onSubmit={handleMessage}>
              <input
@@ -39,6 +41,7 @@ const SinglePost = (props) => {
                  onChange={(e) => setContent(e.target.value)}
               ></input>
         <button>Send Message</button>
+       
     </form>
     </div>
    </>

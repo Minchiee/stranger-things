@@ -57,13 +57,14 @@ const [mappedMessage, setMappedMessage] = useState([])
            <div key={`message${message._id}`}>
             <div>Message: {message.content}</div>
             <div>From :{message.fromUser.username}</div>
+            <div></div>
             </div>
             );
           }): 
           
           <h2>No Messages Currently</h2>}</div> 
           <div>
-<h3>Sent Messages</h3>
+      <h3>Sent Messages</h3>
           { messages ?
         messages.map((message) => {
            if(message.fromUser.username === username) return (

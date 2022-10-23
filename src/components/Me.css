@@ -112,7 +112,33 @@ margin: 5px;
     cursor: pointer;
     padding: 0.5em;
     margin: 5px;
-    width: 40%
+    width: 30%
+  }
+.receivedMessage h3 {
+  display: flex;
+  flex-direction: top
+  ;
+}
+  .receivedMessage {
+    display:flex;
+    font-size: 14px;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-around;
+  }
+  .messageBox{
+    display: flex;
+    margin: 10px;
+    padding: 0.2em;
+    justify-content: space-around;
+    border: 2px solid;
+    border-color: rgb(136, 44, 16);
+  }
+
+  .messageTitle {
+
+display: flex;
+margin-right: 120px;
   }
 
   .searchBar button {
@@ -136,5 +162,7 @@ margin: 5px;
     margin: 0 auto;
     text-align: center;
     font-weight: bold;
+    background-color: #1289b4;
+    color: aliceblue;
 
   }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Warang+Citi&display=swap');
 * {
 font-family: "Noto+Sans+Warang+Citi";
+
 }
 
 body {
@@ -8,6 +9,7 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
+    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
   }
   
   
