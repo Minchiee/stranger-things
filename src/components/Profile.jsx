@@ -50,7 +50,7 @@ const [mappedMessage, setMappedMessage] = useState([])
     return (
       <div className='messageBox'>
       <div>
-        <h3>received messages </h3>
+        <h3>Received Messages </h3>
         { messages ?
         messages.map((message) => {
            if (message.fromUser.username != username ) return (

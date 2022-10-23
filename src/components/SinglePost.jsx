@@ -6,13 +6,13 @@ import { sendMessage } from "../api-adapter";
 const SinglePost = (props) => {
   const {id} = useParams()
   const post = props.post;
- 
+  const username = props.username
   const [content, setContent] = useState("") 
   
-  
+ 
   async function handleMessage(e){
     e.preventDefault()
-    console.log(post)
+    
     
     const token =localStorage.getItem('token')
     const message = await sendMessage(post._id,token,content)
@@ -28,6 +28,7 @@ const SinglePost = (props) => {
           <div >{post.title} </div>
           <div >{post.description} </div>
           <div >{post.price} </div>
+          <div>Author: {post.author.username}</div>
           <div >{post.location} </div>
           <div >{post.willDeliver} </div>
           <div> {post.messages}</div>

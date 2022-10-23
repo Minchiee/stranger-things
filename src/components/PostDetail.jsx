@@ -9,7 +9,7 @@ const PostDetail = (props) => {
   const post = props.filterPosts(id)[0];
   const navigate = useNavigate();
 
-  console.log(post);
+ 
 
   async function handleDelete(e) {
     e.preventDefault();
@@ -24,7 +24,7 @@ const PostDetail = (props) => {
 
   return (
     <>
-      {post ? (
+       (
         <div className="single-post box">
           <div>{post.title} </div>
           <div>{post.description} </div>

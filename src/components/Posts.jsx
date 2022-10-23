@@ -9,6 +9,7 @@ const Posts = (props) => {
   const filterPosts = props.filterPosts 
   const posts = props.posts
 
+
   const username = props.loggedInUser.username
 
 

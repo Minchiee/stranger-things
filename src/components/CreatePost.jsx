@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Login } from ".";
 import { getMe, loginUser } from "../api-adapter";
 import "./Me.css";
-import { json } from "react-router-dom";
+import { json, useNavigate} from "react-router-dom";
 
 const CreatePost = (props) => {
   const [title, setTitle] = useState("");
@@ -12,7 +12,8 @@ const CreatePost = (props) => {
   const [price, setPrice] = useState("");
   const [willDeliver, setWillDeliver] = useState(false);
   const [_id, set_Id] = useState("");
-
+  const navigate = useNavigate()
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = { title, description, author, location, price, willDeliver };
@@ -40,6 +41,7 @@ setAuthor(props.loggedInUser.isAuthor)
       .then((result) => {
         console.log(result);
       });
+      navigate('/posts')
   };
 
   const handleChange = (e) => {

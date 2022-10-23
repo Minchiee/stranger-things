@@ -38,7 +38,7 @@ const Main = () => {
   const getMeData = async () => {
     const myself = await getMe(localStorage.getItem("token"));
     setLoggedInUser(myself);
-    console.log(myself);
+   
     setLoggedIn(true);
   };
   useEffect(() => {
